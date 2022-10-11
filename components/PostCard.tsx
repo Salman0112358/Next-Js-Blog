@@ -1,9 +1,6 @@
 import React from 'react'
-import { IPostCard } from '../interfaces'
 
-
-
-const PostCard = (post : IPostCard) => {
+const PostCard = ({post} : any) => {
   return (
     <div>
         {post.title}
