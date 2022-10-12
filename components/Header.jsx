@@ -9,6 +9,10 @@ const categories = [
 
 {name : "fullstack Development",
     slug : 'fullstackdev'
+},
+
+{name : "Creative",
+    slug : 'creative'
 }
 ]
 
