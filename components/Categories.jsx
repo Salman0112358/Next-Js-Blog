@@ -1,40 +1,28 @@
-import React, {useState, useEffect} from 'react'
-import Link from 'next/link'
-import { getCategories } from '../services';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { getCategories } from "../services";
 
 const Categories = () => {
-
-  const [cateogires, setCateogires] = useState([])
-
-  
+  const [categories, setCateogires] = useState([]);
 
   useEffect(() => {
+    getCategories().then((response) => setCateogires(response));
+  }, []);
 
-  
-
-    async () => {
-      setCateogires(await getCategories())
-    }
-    
-
-  }, [])
-
-  console.log(setCateogires);
+  console.log(categories);
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 mb-8 pb-12">
-    <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-        Categories
-    </h3>
-    {cateogires.map((category) => {
-      <Link key={category.slug} href={`/category/${category.slug}`}>
-        <span className='cursor-pointer block pb-3 mb-3'>
-          {category.name}
-        </span>
-      </Link>
-    })}
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4">Categories</h3>
+      {categories.map((category) => (
+        <Link key={category.slug} href={`/category/${category.slug}`}>
+          <span className="cursor-pointer block pb-3 mb-3">
+            {category.name}
+          </span>
+        </Link>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;
