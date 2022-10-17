@@ -19,7 +19,6 @@ const PostDetails = ({ post }) => {
     return <Loader/>
   }
 
-  console.log(`The post is` ,post)
   return (
     <>
       <div className="container mx-auto px-10 mb-8">
